@@ -1,3 +1,11 @@
+<?php
+if(isset($_POST['loginButton'])) {
+	//login user
+}
+if(isset($_POST['registerButton'])) {
+	//register user
+}
+?>
 <html>
 <head>
 	<title>Welcome to Orpheus!</title>
