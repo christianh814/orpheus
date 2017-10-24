@@ -7,9 +7,9 @@ class Constants {
 	public static $email_does_not_match		= "Emails do not match!";
 	public static $lastname_length			= "Lastname must be between 2 and 25 characters";
 	public static $firstname_length			= "Firstname must be between 2 and 25 characters";
-	public static $username_length			= "Username must be between 5 and 25 characters";
-	public static $username_taken			= "Username already taken";
-	public static $email_taken			= "Email already taken";
-	public static $login_error			= "Username or Password incorrect";
+	public static $username_length			= "Your username must be between 5 and 25 characters";
+	public static $username_taken			= "That username already taken";
+	public static $email_taken			= "That email is already taken";
+	public static $login_error			= "Your username or password incorrect";
 }
 ?>
