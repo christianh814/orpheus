@@ -17,6 +17,21 @@ if (isset($_SESSION['user_logged_in'])) {
 		<div id="nowPlayingBar">
 			
 			<div id="nowPlayingLeft">
+				<div class="content">
+					<span class="albumLink">
+						<img src="http://placehold.it/57x57" class="albumArtwork"></img>
+					</span>
+
+					<div class="trackInfo">
+						<span class="trackName">
+							Happy Birthday
+						</span>
+
+						<span class="artistName">
+							Christian Hernandez
+						</span>
+					</div><!-- track info -->
+				</div>
 			</div> <!-- now playing left -->
 
 			<div id="nowPlayingCenter">
@@ -64,6 +79,18 @@ if (isset($_SESSION['user_logged_in'])) {
 			</div> <!-- now playing center -->
 
 			<div id="nowPlayingRight">
+				<div class="volumeBar">
+					<button class="controlButton volume" title="Volume Button" alt="volume">
+						<img src="assets/images/icons/volume.png"></img>
+					</button>
+
+					<div class="progressBar">
+						<div class="progressBarBg">
+							<div class="progress"></div>
+						</div> <!-- PB bg -->
+					</div><!-- progress bar-->
+
+				</div>
 			</div> <!-- now playing right -->
 
 		</div> <!-- now playing bar-->
