@@ -2,6 +2,7 @@
 require_once("includes/config.php");
 require_once("includes/classes/Artist.php");
 require_once("includes/classes/Album.php");
+require_once("includes/classes/Song.php");
 //
 if (isset($_SESSION['user_logged_in'])) {
 	$user_logged_in = $_SESSION['user_logged_in'];
