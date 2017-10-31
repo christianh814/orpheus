@@ -39,9 +39,9 @@
 				$(".albumLink img").attr("src", album.artwork_path);
 			});
 
-			audioElement.setTrack(track.path);
+			audioElement.setTrack(track);
 			// This autoplays it regaurdless of the "true/false" set...this may be just for testing
-			audioElement.play();
+			playSong();
 		});
 
 		if(play) {
@@ -50,6 +50,12 @@
 	}
 
 	function playSong() {
+		// Update song count if current time is 0.00
+		if(audioElement.audio.currentTime == 0) {
+			$.post("includes/handlers/ajax/update_plays.php", { songId: audioElement.currentlyPlaying.id });
+		}
+
+		//
 		$(".controlButton.play").hide();
 		$(".controlButton.pause").show();
 		audioElement.play();
