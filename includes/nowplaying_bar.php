@@ -19,6 +19,14 @@
 		audioElement = new Audio();
 		setTrack(currentPlayList[0], currentPlayList, false);
 
+		// Set volume bar to 1
+		updateVolumeProgressBar(audioElement.audio);
+
+		// Prevent mouse highliting anything in the control bar
+		$("#nowPlayingBarContainer").on("mousedown touchstart mousemove touchmove", function(e) {
+			e.preventDefault();
+		});
+
 		// Make the progressbar clickable/dragable
 		$(".playbackBar .progressBar").mousedown(function() {
 			mouseDown = true;
@@ -33,6 +41,27 @@
 
 		$(".playbackBar .progressBar").mouseup(function(e) {
 			timeFromOffset(e, this);
+		});
+
+		// Make the volumebar clickable/dragable
+		$(".volumeBar .progressBar").mousedown(function() {
+			mouseDown = true;
+		});
+
+		$(".volumeBar .progressBar").mousemove(function(e) {
+			if(mouseDown) {
+				var percentage = e.offsetX / $(this).width();
+				if (percentage >= 0 && percentage <= 1) {
+					audioElement.audio.volume = percentage;
+				}
+			}
+		});
+
+		$(".volumeBar .progressBar").mouseup(function(e) {
+			var percentage = e.offsetX / $(this).width();
+			if (percentage >= 0 && percentage <= 1) {
+				audioElement.audio.volume = percentage;
+			}
 		});
 
 		$(document).mouseup(function() {

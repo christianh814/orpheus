@@ -22,7 +22,7 @@ function updateTimeProgressBar(audio) {
 
 function updateVolumeProgressBar(audio) {
 	// Update volumebar
-	var volume = audio.volume * 100;
+	var volue = audio.volume * 100;
 	$(".volumeBar .progress").css("width", volume + "%");
 }
 
