@@ -15,6 +15,9 @@ if (isset($_SESSION['user_logged_in'])) {
 	<title>Welcome to Orpheus!</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="icon" href="favicon.ico">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="assets/js/script.js"> </script>
 </head>
 <body>
 <div id="mainContainer">
