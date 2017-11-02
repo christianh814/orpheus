@@ -1,4 +1,7 @@
-<?php require_once("includes/header.php") ?>
+<?php
+//require_once("includes/header.php");
+require_once("includes/included_files.php");
+?>
 <!-- Site Content START -->
 
 <h1 class="pageHeadingBig">You Might Also Like</h1>
@@ -11,12 +14,12 @@
 		while ($row = mysqli_fetch_array($album_query)) {
 			echo "
 				<div class='gridViewItem'>
-					<a href='album.php?id=" . $row['id'] . "'>
+					<span role='link' tabindex='0' onclick='openPage(\"album.php?id=" . $row['id'] . "\")'>
 						<img src='" . $row['artwork_path'] . "'></img>
 						<div class='gridViewInfo'>" . 
 							$row['title'] . "
 						</div>
-					</a>
+					</span>
 				</div>
 				";
 		}
@@ -24,4 +27,6 @@
 </div> <!-- gridViewContainer -->
 
 <!-- Site Content END -->
-<?php require_once("includes/footer.php"); ?>
+<?php
+//require_once("includes/footer.php");
+?>

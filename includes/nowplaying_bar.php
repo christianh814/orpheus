@@ -179,13 +179,12 @@
 			});
 
 			audioElement.setTrack(track);
-			// This autoplays it regaurdless of the "true/false" set...this may be just for testing
-			playSong();
-		});
 
-		if(play) {
-			audioElement.play();
-		}
+			// Play track if it's set to true
+			if(play) {
+				playSong();
+			}
+		});
 	}
 
 	function playSong() {

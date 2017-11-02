@@ -6,6 +6,7 @@ require_once("includes/classes/Song.php");
 //
 if (isset($_SESSION['user_logged_in'])) {
 	$user_logged_in = $_SESSION['user_logged_in'];
+	echo "<script> userLoggedIn = \"{$user_logged_in}\"; </script>";
 } else {
 	header("Location: register.php");
 }

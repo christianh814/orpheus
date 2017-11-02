@@ -1,4 +1,7 @@
-<?php require_once("includes/header.php") ?>
+<?php
+//require_once("includes/header.php");
+require_once("includes/included_files.php");
+?>
 <!-- Site Content START -->
 
 <?php
@@ -65,4 +68,6 @@
 </div><!-- tracklistContainer -->
 
 <!-- Site Content END -->
-<?php require_once("includes/footer.php"); ?>
+<?php
+//require_once("includes/footer.php");
+?>
