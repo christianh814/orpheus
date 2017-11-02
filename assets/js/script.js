@@ -1,6 +1,11 @@
 var currentPlayList = [];
+var shufflePlayList = [];
+var tempPlayList = [];
 var audioElement;
 var mouseDown = false;
+var currentIndex = 0;
+var repeat = false;
+var shuffle = false;
 
 function formatTime(seconds) {
 	var time = Math.round(seconds);
@@ -30,6 +35,11 @@ function Audio() {
 
 	this.currentlyPlaying;
 	this.audio = document.createElement('audio');
+
+	// Make sure the next song plays after the first song finishes
+	this.audio.addEventListener("ended", function() {
+		nextSong();
+	});
 
 	this.audio.addEventListener("canplay", function() {
 		// "this.duration" refers to this instance of "this.audio"..
