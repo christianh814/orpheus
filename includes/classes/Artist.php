@@ -18,6 +18,15 @@ class Artist {
 		return $artist['name'];
 	}
 
+	public function getSongIds() {
+		$sql = "SELECT id FROM songs WHERE artist = '{$this->id}' ORDER BY plays ASC LIMIT 5";
+		$query = mysqli_query($this->con, $sql);
+		$array = array();
+		while ($row = mysqli_fetch_array($query)) {
+			array_push($array, $row['id']);
+		}
+		return $array;
+	}
 // END CLASS
 }
 ?>

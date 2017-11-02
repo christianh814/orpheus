@@ -15,6 +15,8 @@ function openPage(url) {
 	}
 	var encodedUrl = encodeURI(url + "&userLoggedIn=" + userLoggedIn);
 	$("#mainContent").load(encodedUrl);
+	$("body").scrollTop(0);
+	history.pushState(null, null, url);
 }
 
 function formatTime(seconds) {
@@ -39,6 +41,10 @@ function updateVolumeProgressBar(audio) {
 	// Update volumebar
 	var volume = audio.volume * 100;
 	$(".volumeBar .progress").css("width", volume + "%");
+}
+
+function playFirstSong() {
+	setTrack(tempPlayList[0], tempPlayList, true);
 }
 
 function Audio() {
