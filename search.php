@@ -9,7 +9,7 @@ if(isset($_GET['term'])) {
 ?>
 <div class="searchContainer">
 	<h4>Search for an artist, album, or a song</h4>
-	<input type="text" class="searchInput" value="<?php echo $term;?>" placeholder="Start typing..." onfocus="this.value = this.value"></input>
+	<input type="text" class="searchInput" value="<?php echo $term;?>" placeholder="Start typing..." onfocus="var val=this.value; this.value=''; this.value= val;"></input>
 </div>
 <script>
 	$(".searchInput").focus();
