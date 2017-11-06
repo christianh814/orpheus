@@ -61,6 +61,38 @@ CREATE TABLE `genres` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `playlists`
+--
+
+DROP TABLE IF EXISTS `playlists`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `playlists` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `owner` varchar(255) NOT NULL,
+  `date_created` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `playlistsongs`
+--
+
+DROP TABLE IF EXISTS `playlistsongs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `playlistsongs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `song_id` int(11) NOT NULL,
+  `playlist_id` int(11) NOT NULL,
+  `playlist_order` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `songs`
 --
 
@@ -110,4 +142,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-03 13:38:39
+-- Dump completed on 2017-11-06 15:38:16
