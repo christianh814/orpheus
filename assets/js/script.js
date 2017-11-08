@@ -1,3 +1,4 @@
+// Variables
 var currentPlayList = [];
 var shufflePlayList = [];
 var tempPlayList = [];
@@ -9,6 +10,39 @@ var shuffle = false;
 var userLoggedIn;
 var timer;
 
+//Events
+$(document).click(function(click) {
+	var target = $(click.target);
+
+	if(!target.hasClass("item") && !target.hasClass("optionsButton")) {
+		hideOptionsMenu();
+	}
+});
+
+$(window).scroll(function() {
+	hideOptionsMenu();
+});
+
+// Functions
+function hideOptionsMenu() {
+	var menu = $(".optionsMenu");
+	if(menu.css("display") != "none") {
+		menu.css("display", "none");
+	}
+}
+
+function showOptionsMenu(button) {
+	var menu = $(".optionsMenu");
+	var menuWidth = menu.width();
+
+	var scrollTop = $(window).scrollTop(); //distance from top of window to top of document
+	var elementOffset = $(button).offset().top; //distance from top of document
+
+	var top = elementOffset - scrollTop;
+	var left = $(button).position().left;
+
+	menu.css({ "top": top + "px", "left": left - menuWidth + "px", "display": "inline"});
+}
 
 function openPage(url) {
 	if (timer != null) {
@@ -29,6 +63,21 @@ function createPlaylist() {
 
 	if(alert != null) {
 		$.post("includes/handlers/ajax/create_playlist.php", {name: popup, username: userLoggedIn}).done(function(error) {
+			//do something when AJAX returns
+			if(error != "") {
+				alert(error);
+				return;
+			}
+				openPage("yourmusic.php");
+		});
+	}
+}
+
+function deletePlaylist(playlistid) {
+	var warn = confirm("Are you sure you want to delete this playlist?");
+
+	if(warn) {
+		$.post("includes/handlers/ajax/delete_playlist.php", { playlist_id: playlistid }).done(function(error) {
 			//do something when AJAX returns
 			if(error != "") {
 				alert(error);

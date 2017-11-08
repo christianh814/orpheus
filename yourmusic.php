@@ -21,7 +21,7 @@ require_once("includes/included_files.php");
 			while ($row = mysqli_fetch_array($playlists_query)) {
 				$playlist = new Playlist($con, $row);
 				echo "
-					<div class='gridViewItem' role='link' tabindex='0' onlick='openPage(\"playlist.php?id=" . $playlist->getId() . "\")'>
+					<div class='gridViewItem' role='link' tabindex='0' onclick='openPage(\"playlist.php?id=" . $playlist->getId() . "\")'>
 						<div class='playlistImage'>
 							<img src='assets/images/icons/playlist.png'></img>
 						</div>

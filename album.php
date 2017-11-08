@@ -50,7 +50,7 @@ require_once("includes/included_files.php");
 						</div>
 
 						<div class='trackOptions'>
-							<img class='optionsButton' src='assets/images/icons/more.png'></img>
+							<img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionsMenu(this)'></img>
 						</div>
 
 						<div class='trackDuration'>
@@ -66,8 +66,9 @@ require_once("includes/included_files.php");
 		</script>
 	</ul><!-- tracklist -->
 </div><!-- tracklistContainer -->
-
-<!-- Site Content END -->
-<?php
-//require_once("includes/footer.php");
-?>
+<nav class="optionsMenu">
+	<input type="hidden" class="songId">
+	<div class="item">Add to playlist</div>
+	<div class="item"> Item 2 </div>
+	<div class="item"> Item 3 </div>
+</nav>
