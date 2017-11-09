@@ -14,6 +14,14 @@ class User {
 	public function getUsername() {
 		return $this->username;
 	}
+
+	public function getFirstAndLastName() {
+		$sql = "SELECT CONCAT(firstname, ' ', lastname) AS 'name' FROM users WHERE username = '{$this->username}' ";
+		$query = mysqli_query($this->con, $sql);
+
+		$row = mysqli_fetch_array($query);
+		return $row['name'];
+	}
 // END CLASS
 }
 ?>
