@@ -23,6 +23,21 @@ $(window).scroll(function() {
 	hideOptionsMenu();
 });
 
+$(document).on("change", "select.playlist", function() {
+	var select = $(this);
+	var playlistId = select.val();
+	var songId = select.prev(".songId").val();
+
+	$.post("includes/handlers/ajax/add_to_playlist.php", {playlist_id: playlistId, song_id: songId}).done(function(error) {
+		if(error != "") {
+			alert(error);
+			return;
+		}
+		hideOptionsMenu();
+		select.val("");
+	});
+});
+
 // Functions
 function hideOptionsMenu() {
 	var menu = $(".optionsMenu");
@@ -32,8 +47,10 @@ function hideOptionsMenu() {
 }
 
 function showOptionsMenu(button) {
+	var songId = $(button).prevAll(".songId").val();
 	var menu = $(".optionsMenu");
 	var menuWidth = menu.width();
+	menu.find(".songId").val(songId);
 
 	var scrollTop = $(window).scrollTop(); //distance from top of window to top of document
 	var elementOffset = $(button).offset().top; //distance from top of document
@@ -56,6 +73,18 @@ function openPage(url) {
 	$("#mainContent").load(encodedUrl);
 	$("body").scrollTop(0);
 	history.pushState(null, null, url);
+}
+
+function removeFromPlaylist(button, playlistId) {
+	var songId = $(button).prevAll(".songId").val();
+	$.post("includes/handlers/ajax/remove_from_playlist.php", { playlist_id: playlistId, song_id: songId }).done(function(error) {
+		//do something when AJAX returns
+		if(error != "") {
+			alert(error);
+			return;
+		}
+			openPage("playlist.php?id=" + playlistId);
+	});
 }
 
 function createPlaylist() {

@@ -52,7 +52,8 @@ require_once("includes/included_files.php");
 						</div>
 
 						<div class='trackOptions'>
-							<img class='optionsButton' src='assets/images/icons/more.png'></img>
+							<input type='hidden' class='songId' value='" . $playlist_song->getId() . "'> 
+							<img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionsMenu(this)'></img>
 						</div>
 
 						<div class='trackDuration'>
@@ -68,5 +69,10 @@ require_once("includes/included_files.php");
 		</script>
 	</ul><!-- tracklist -->
 </div><!-- tracklistContainer -->
+<nav class="optionsMenu">
+	<input type="hidden" class="songId">
+		<?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn->getUsername()) ?>
+	<div class="item" onclick="removeFromPlaylist(this, '<?php echo $playlist_id; ?>')">Remove from playlist</div>
+</nav> 
 
 <!-- Site Content END -->
