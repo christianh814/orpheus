@@ -9,7 +9,7 @@ require_once("includes/included_files.php");
 	</div>
 
 	<div class="buttonItems">
-		<button class="button">USER DETAILS</button>
-		<button class="button">LOGOUT</button>
+		<button class="button" onclick="openPage('update_details.php')">USER DETAILS</button>
+		<button class="button" onclick="logout()">LOGOUT</button>
 	</div>
 </div>

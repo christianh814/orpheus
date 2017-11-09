@@ -407,3 +407,6 @@ input:focus {
 .userInfo h1 {
 	text-align: center;
 }
+.userDetails .container h2 {
+	text-align: center;
+}

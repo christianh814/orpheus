@@ -87,6 +87,12 @@ function removeFromPlaylist(button, playlistId) {
 	});
 }
 
+function logout() {
+	$.post("includes/handlers/ajax/logout.php", function() {
+		location.reload();
+	});
+}
+
 function createPlaylist() {
 	var popup = prompt("Please enter a name for your playlist");
 

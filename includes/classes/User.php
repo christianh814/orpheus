@@ -22,6 +22,14 @@ class User {
 		$row = mysqli_fetch_array($query);
 		return $row['name'];
 	}
+
+	public function getEmail() {
+		$sql = "SELECT email FROM users WHERE username = '{$this->username}' ";
+		$query = mysqli_query($this->con, $sql);
+
+		$row = mysqli_fetch_array($query);
+		return $row['email'];
+	}
 // END CLASS
 }
 ?>
