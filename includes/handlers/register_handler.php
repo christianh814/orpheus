@@ -23,6 +23,9 @@ if(isset($_POST['registerButton'])) {
 
 	if($was_successful) {
 		$_SESSION['user_logged_in'] = $username;
+		$_SESSION['user_logged_in_firstname'] = $firstname;
+		$_SESSION['user_logged_in_lastname'] = $lastname;
+		$_SESSION['user_logged_in_fullname'] = $firstname . " " . $lastname;
 		header("Location: index.php");
 	}
 }

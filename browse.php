@@ -25,6 +25,9 @@ require_once("includes/included_files.php");
 		}
 	?>
 </div> <!-- gridViewContainer -->
+<script>
+  $.growl({ title: "Music", message: "Music provided by <a href='https://www.bensound.com/royalty-free-music' target='_blank'>Bensound</a>" });
+</script>
 
 <!-- Site Content END -->
 <?php

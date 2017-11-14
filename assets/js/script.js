@@ -87,6 +87,28 @@ function removeFromPlaylist(button, playlistId) {
 	});
 }
 
+function updateEmail(emailClass) {
+	var emailValue = $("." + emailClass).val();
+	$.post("includes/handlers/ajax/update_email.php", {email: emailValue, username: userLoggedIn}).done(function(response) {
+		$("." + emailClass).nextAll(".message").text(response);
+	});
+}
+
+function updatePassword(oldPasswordClass, newPasswordClass1, newPasswordClass2) {
+	var oldPassword = $("." + oldPasswordClass).val();
+	var newPassword1 = $("." + newPasswordClass1).val();
+	var newPassword2 = $("." + newPasswordClass2).val();
+	$.post("includes/handlers/ajax/update_password.php", 
+		{
+			oldpassword: oldPassword,
+			newpassword1: newPassword1,
+			newpassword2: newPassword2,
+			username: userLoggedIn
+		}).done(function(response) {
+		$("." + oldPasswordClass).nextAll(".message").text(response);
+	});
+}
+
 function logout() {
 	$.post("includes/handlers/ajax/logout.php", function() {
 		location.reload();
