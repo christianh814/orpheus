@@ -1,5 +1,6 @@
 <?php
 require_once("includes/config.php");
+require_once("includes/vendor/autoload.php");
 require_once("includes/classes/Artist.php");
 require_once("includes/classes/Album.php");
 require_once("includes/classes/Song.php");

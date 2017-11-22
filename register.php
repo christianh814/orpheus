@@ -1,5 +1,6 @@
 <?php
 require_once("includes/config.php");
+require_once("includes/vendor/autoload.php");
 require_once("includes/classes/Account.php");
 require_once("includes/classes/Constants.php");
 //**//
@@ -58,9 +59,22 @@ function getInputValue($name) {
 				</p>
 				<button type="submit" name="loginButton">LOGIN</button>
 
+
+
 				<div class="hasAccountText">
 					<span id="hideLogin">Don't have an account yet? Signup here!</span>
 				</div>
+
+				<?php
+				/*
+				<span id="hideLogin">
+					<a href="<?php echo htmlspecialchars($loginUrl); ?>" style="text-decoration: none">
+						<button class="loginBtn loginBtn--facebook"> Login with Facebook </button>
+					</a>
+				</span>
+				*/
+				?>
+
 			</form>
 	
 			<!-- Register Form -->
@@ -111,6 +125,22 @@ function getInputValue($name) {
 				</div>
 
 			</form>
+
+
+			<?php
+			//
+			$fb = new Facebook\Facebook([
+				'app_id' => getenv("FB_APP_ID"),
+				'app_secret' => getenv("FB_APP_SECRET"),
+				'default_graph_version' => 'v2.2'
+			]);
+			$helper = $fb->getRedirectLoginHelper();
+			$permissions = ['email']; // Optional permissions
+			$loginUrl = $helper->getLoginUrl('https://' . $_SERVER['SERVER_NAME'] . '/fb-callback.php', $permissions);
+			echo "<a href=" .  htmlspecialchars($loginUrl) . " style='text-decoration: none'>
+				<button class='loginBtn loginBtn--facebook'> Proceed with Facebook </button>
+			</a>";
+			?>
 		</div><!-- inputContainer -->
 
 		<div id="loginText">

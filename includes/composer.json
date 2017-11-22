@@ -1,0 +1,12 @@
+{
+    "name": "orpheus",
+    "require": {
+        "facebook/graph-sdk": "^5.6"
+    },
+    "authors": [
+        {
+            "name": "Christian Hernandez",
+            "email": "c_hernand1982@yahoo.com"
+        }
+    ]
+}

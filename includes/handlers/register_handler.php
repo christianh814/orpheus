@@ -18,8 +18,9 @@ if(isset($_POST['registerButton'])) {
 	$email2 =  sanitizeFormUsername($_POST['email2']);
 	$pw1 =  sanitizeFormPassword($_POST['password']);
 	$pw2 =  sanitizeFormPassword($_POST['password2']);
+	$pic = "assets/images/profile_pics/head_emerald.png";
 	//
-	$was_successful = $account->register($username, $firstname, $lastname, $email1, $email2, $pw1, $pw2);
+	$was_successful = $account->register($username, $firstname, $lastname, $email1, $email2, $pw1, $pw2, $pic);
 
 	if($was_successful) {
 		$_SESSION['user_logged_in'] = $username;
